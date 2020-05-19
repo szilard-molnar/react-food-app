@@ -8,7 +8,7 @@ class SearchBar extends React.Component {
 
     render() {
         return(
-            <Paper elevation={8} variant="outlined">
+            <Paper elevation={8} variant="outlined" style={{padding: '20px'}}>
                 <TextField id="searchBarInput" label="Search for you food!"/>
             </Paper>
         )
