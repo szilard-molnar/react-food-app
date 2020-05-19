@@ -6,10 +6,20 @@ class SearchBar extends React.Component {
         searchTerm: ''
     }
 
+    handleChange = (event) => {
+        this.setState({ searchTerm: event.target.value });
+    }
+
+    handleSubmit = () => {
+        alert("form submitted! " + this.state.searchTerm);
+    }
+
     render() {
         return(
             <Paper elevation={8} variant="outlined" style={{padding: '20px'}}>
-                <TextField id="searchBarInput" label="Search for you food!"/>
+                <form onSubmit={this.handleSubmit}>
+                    <TextField id="searchBarInput" label="Search for you food!" onChange={this.handleChange}/>
+                </form>
             </Paper>
         )
     }
