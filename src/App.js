@@ -1,9 +1,12 @@
 import React from 'react';
+import SearchBar from './components/SearchBar';
 
 class App extends React.Component {
     render() {
         return(
-            <h1>This is the app!!!</h1>
+            <div>
+                <SearchBar />
+            </div>
         )
     }
 }
