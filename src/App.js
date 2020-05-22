@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from './components/SearchBar';
+import FoodCard from './components/FoodCard';
 
 import './App.css';
 
@@ -8,6 +9,7 @@ class App extends React.Component {
         return(
             <div>
                 <SearchBar />
+                <FoodCard />
             </div>
         )
     }
