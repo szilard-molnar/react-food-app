@@ -1,25 +1,17 @@
 import axios from 'axios';
 
-const instance = axios.get({
-    baseURL: 'https://webknox-recipes.p.rapidapi.com/recipes/search',
-    headers: {
-        "x-rapidapi-host": "webknox-recipes.p.rapidapi.com",
-        "x-rapidapi-key": "748ddc26b8mshb590d128ea3a157p115cd4jsn1816f6826646",
-    }
+const callApi = axios.get("https://webknox-recipes.p.rapidapi.com/recipes/findByIngredients?number=5&ingredients=chicken", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "webknox-recipes.p.rapidapi.com",
+		"x-rapidapi-key": "748ddc26b8mshb590d128ea3a157p115cd4jsn1816f6826646"
+	}
 })
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.log(err);
+});
 
-export default {
-    getData: () => {
-        instance({
-            'method': 'GET',
-            'url': '/query',
-            'params': {
-                'search': 'parameter',
-            },
-            transformResponse: [function (data) {
-                console.log("Fetching data...");
-                return data;
-            }]
-        })
-    }
-}
+export default callApi;

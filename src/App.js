@@ -5,16 +5,18 @@ import API from './components/api/foodApi';
 import './App.css';
 
 class App extends React.Component {
+    state = {
+        recipes: []
+    }
 
 
-    handleSubmit = async (searchTerm) => {
-        const response = await API.getData('search', {
-            params: {
-                parameter: searchTerm,
-            }
-        })
-
+    handleSubmit = async (searchTerm, event) => {
+        event.preventDefault();
+        const response = await API.callApi;
         console.log(response);
+        this.setState({
+            recipes: response
+        })
     }
 
     render() {
