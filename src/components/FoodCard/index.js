@@ -12,7 +12,7 @@ class FoodCard extends React.Component {
         return(
             <Card className="recipeCard" variant="outlined">
                 <CardContent>
-                    <h1>this is a card</h1>
+                    <h1>This is FoodCard</h1>
                 </CardContent>
             </Card>
         )

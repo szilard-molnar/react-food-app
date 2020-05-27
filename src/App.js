@@ -1,7 +1,8 @@
 import React from 'react';
 import SearchBar from './components/SearchBar';
+import { Grid } from '@material-ui/core';
 import FoodCard from './components/FoodCard';
-import API from './components/api/foodApi';
+import API from './components/api/foodApi.js';
 import './App.css';
 
 class App extends React.Component {
@@ -9,21 +10,25 @@ class App extends React.Component {
         recipes: []
     }
 
-
-    handleSubmit = async (searchTerm, event) => {
-        event.preventDefault();
-        const response = await API.callApi;
-        console.log(response);
-        this.setState({
-            recipes: response
-        })
+    handleSubmit = async (searchTerm) => {
+        const apiResponse = new API.get('search', {
+            "params": {
+                "ingredients": searchTerm,
+                "number": "3",
+            }
+        });
+        console.log("this is the api response ", apiResponse);
     }
 
     render() {
         return(
             <div>
-                <SearchBar onFormSubmit={this.handleSubmit}/>
-                <FoodCard />
+                <Grid>
+                    <SearchBar onFormSubmit={this.handleSubmit}/>
+                </Grid>
+                <Grid>
+                    <FoodCard>{this.state.recipes}</FoodCard>
+                </Grid>
             </div>
         )
     }
